@@ -9,6 +9,10 @@ function TextCardComponent(props) {
     setIsChecked(!isChecked);
   };
 
+  const handleClick = (e) => {
+    console.log(e.target.textContent + " clicked");
+  };
+
   return (
     <div className="d-flex px-2 mb-2 btn btn-outline-secondary">
       <input
@@ -17,6 +21,7 @@ function TextCardComponent(props) {
         checked={isChecked}
         onChange={handleCheckboxChange}
         id="checkboxId" // Add a unique id if you need it for accessibility
+        onClick={handleClick}
       />
       <h5 className="text-center text-truncate h-25 m-0">{text}</h5>
     </div>
