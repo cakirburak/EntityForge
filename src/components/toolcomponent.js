@@ -6,7 +6,11 @@ function ToolComponent(props) {
   const [selectedClass, setSelectedClass] = useState('');
 
   const classes = props.classes;
-  const entities = props.entities;
+
+  var entities = "";
+  if(selectedClass !== null && selectedClass !== undefined) {
+    entities = selectedClass.entities;
+  }
 
   const handleTextChange = (e) => {
     setText(e.target.value);
@@ -14,9 +18,11 @@ function ToolComponent(props) {
 
   const handleClassSelect = (className) => {
     setSelectedClass(className);
+    alert("changed to " + className.classType);
   };
 
   const handleSubmit = (e) => {
+    //console.log(`Selected text: ${window.getSelection().toString()}`);
     e.preventDefault();
     console.log(text);
     console.log(selectedClass);
@@ -24,6 +30,11 @@ function ToolComponent(props) {
     // Reset the text and selectedClass state
     setText('');
     setSelectedClass('');
+  };
+
+  const handleEntitySet = (e) => {
+    e.preventDefault();
+    console.log(window.getSelection().toString() + ", Entity set to " + e.target.textContent);
   };
 
   return (
@@ -36,13 +47,13 @@ function ToolComponent(props) {
           <div className="mt-3 d-flex flex-column align-items-center">
             <div className="w-100 text-start fs-5 ms-4">Entities</div>
             <div className="d-flex flex-wrap w-100 mt-2">
-              {entities.map((entity) => <div className="mx-3 my-2 bg-success">{entity}</div>)}
+              {entities && entities.map((entity) => <button id="entityButtons" type="button" class="btn m-2 btn-success" onClick={handleEntitySet}>{entity}</button>)}
             </div>
           </div>
           <div className="mt-3 d-flex flex-column align-items-center">
             <div className="w-100 text-start fs-5 ms-4">Classification</div>
             <div className="d-flex flex-wrap w-100">
-              {classes.map((classIndex) => <label className="mx-3 my-2"><input className="mx-1" type="radio" value={classIndex} checked={selectedClass === classIndex} onChange={() => handleClassSelect(classIndex)} />{classIndex}</label>)}
+              {classes && classes.map((classIndex) => <label className="mx-3 my-2"><input className="mx-1" type="radio" value={classIndex.classType} checked={selectedClass === classIndex} onChange={() => handleClassSelect(classIndex)} />{classIndex.classType}</label>)}
             </div>
           </div>
           <button className="mt-4 btn btn-primary" type="submit">Update</button>
