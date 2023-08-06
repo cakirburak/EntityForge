@@ -1,0 +1,16 @@
+{
+    "classes": [
+      {
+        "classType": "Reservation Request",
+        "entities": ["date", "time", "place", "person"]
+      },
+      {
+        "classType": "Reservation Update",
+        "entities": ["person", "fee", "updated"]
+      },
+      {
+        "classType": "Reservation Cancellation",
+        "entities": ["PNR", "fee", "reason"]
+      }
+    ]
+  }
