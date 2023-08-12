@@ -11,7 +11,7 @@
     },
     {
       "classType": "Reservation Update",
-      "entities": ["person", "fee", "updated"]
+      "entities": ["person", "fee", "updated", "a", "b", "c"]
     },
     {
       "classType": "Reservation Cancellation",

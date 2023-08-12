@@ -6,19 +6,11 @@ function ToolComponent({classes,text,setIsChecked}) {
   const [namedEntities, setNamedEntities] = useState([]);
   const [selectedText, setSelectedText] = useState('');
   const [selectedClass, setSelectedClass] = useState('');
+  const [lastColorIndex, setLastColorIndex] = useState(0);
+
+  const colors = [["primary", "#106cf6"], ["secondary", "#6c757d"], ["success", "#3b8855"], ["info", "#53caf0"], ["warning", "#f8c146"], ["danger", "#dc3545"]]
 
   const contentEditableRef = useRef(null);
-
-  const entityColors = {
-    date: "#ffee58",
-    time: "#64b5f6",
-    place: "#336BFF",
-    person: "#36FF33",
-    PNR: "#FF33C7",
-    fee: "#BCCD10",
-    reason: "#E6610A",
-    upadated: "#0AD2E6",
-  };
 
   var entities = "";
   if(selectedClass !== null && selectedClass !== undefined) {
@@ -46,7 +38,7 @@ function ToolComponent({classes,text,setIsChecked}) {
     contentEditableRef.current.innerHTML = text;
   };
 
-  const handleEntitySet = (e) => {
+  const handleEntitySet = (e, color) => {
     e.preventDefault();
     var entity = e.target.textContent;
     var selectedText = window.getSelection().toString();
@@ -54,15 +46,31 @@ function ToolComponent({classes,text,setIsChecked}) {
     var start = text.indexOf(selectedText);
     var end = start + selectedText.length;
 
-    const entityColor = entityColors[entity] || "#ffffff";
+    const entityColor = color;
+    console.log(color);
+
 
     setNamedEntities([...namedEntities, {text:selectedText, entity:entity, indexStart:start, indexEnd:end}]);
 
     const contentEditableDiv = document.getElementById("content-editable");
     const range = window.getSelection().getRangeAt(0);
     const span = document.createElement("span");
-    span.style.backgroundColor = entityColor; // Change this to your desired background color
+    span.style.backgroundColor = entityColor;
     range.surroundContents(span);
+  };
+
+  const createEntites = () => {
+    return entities.map((entity, index) => (
+      <button
+        key={index}
+        id="entityButtons"
+        type="button"
+        className={`btn m-2 btn-${colors[index][0]}`}
+        onClick={(e) => handleEntitySet(e, colors[index][1])}
+      >
+        {entity}
+      </button>
+    ));
   };
 
   return (
@@ -81,7 +89,7 @@ function ToolComponent({classes,text,setIsChecked}) {
           <div className="mt-3 d-flex flex-column align-items-center">
             {entities && <div className="w-100 text-start fs-5 ms-4">Entities</div>}
             <div className="d-flex flex-wrap w-100 mt-2">
-              {entities && entities.map((entity) => <button id="entityButtons" type="button" className="btn m-2 btn-success" onClick={handleEntitySet}>{entity}</button>)}
+              {entities && createEntites()}
             </div>
           </div>
           <div className="mt-3 d-flex flex-column align-items-center">
