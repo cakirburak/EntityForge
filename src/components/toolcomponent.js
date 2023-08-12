@@ -6,7 +6,6 @@ function ToolComponent({classes,text,setIsChecked}) {
   const [namedEntities, setNamedEntities] = useState([]);
   const [selectedText, setSelectedText] = useState('');
   const [selectedClass, setSelectedClass] = useState('');
-  const [lastColorIndex, setLastColorIndex] = useState(0);
 
   const colors = [["primary", "#106cf6"], ["secondary", "#6c757d"], ["success", "#3b8855"], ["info", "#53caf0"], ["warning", "#f8c146"], ["danger", "#dc3545"]]
 
