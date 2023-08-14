@@ -1,41 +1,19 @@
-import React, { useState } from 'react';
-import { forwardRef, useImperativeHandle, useRef } from 'react';
 
-const TextCardComponent = forwardRef((props, ref) => {
+const TextCardComponent = ({ text, anahtar, onClick }) => {
 
-  var setTemp = props.setTemp;
-
-  const [text, setText] = useState(props.text)
-  const [isChecked, setIsChecked] = useState(false);
-
-  function handleClick() {
-    setTemp(text);
+  const handleClick = (e) => {
+    onClick(e, anahtar);
   }
 
-  const privateRef = useRef();
-
-  const publicRef = {
-    elementRef: privateRef,
-    instanceMethod: () => {
-      setIsChecked(true)
-    },
-  };
-
-  useImperativeHandle(ref, () => publicRef);
-
   return (
-    <div className="d-flex px-2 mb-2 btn btn-outline-secondary" onClick={handleClick}>
+    <div className="d-flex mb-2 p-0 btn btn-outline-secondary" >
       <input
-        ref={privateRef}
-        className="me-2"
+        className="mx-2"
         type="checkbox"
-        checked={isChecked}
-        // onChange={handleCheckboxChange}
-        id="checkboxId" // Add a unique id if you need it for accessibility
       />
-      <h5 className="text-center text-truncate h-25 m-0">{text}</h5>
+      <h5 className="text-start p-2 text-truncate h-25 m-0 w-100" onClick={handleClick}>{text}</h5>
     </div>
   );
-});
+};
 
 export default TextCardComponent;
