@@ -49,18 +49,22 @@ function ToolComponent({ classes, text, setExportData, exportData }) {
     const selectedTextBackgroundColor = hexColor;
     // console.log(hexColor);
 
-    setNamedEntities([...namedEntities, { text: selectedText, entity: entity, indexStart: start, indexEnd: end, color: colorText }]);
-
     setSelectedTexts([...selectedTexts, [selectedText, end]])
     // console.log(selectedTexts);
+
+    const entityId = namedEntities.length;
+    const spanId = `entity-span-${entityId}`;
 
     const contentEditableDiv = document.getElementById("content-editable");
     const range = window.getSelection().getRangeAt(0);
     // console.log(range.startOffset);
     // console.log(range.endOffset);
     const span = document.createElement("span");
+    span.id = spanId;
     span.style.backgroundColor = selectedTextBackgroundColor;
     range.surroundContents(span);
+
+    setNamedEntities([...namedEntities, { text: selectedText, entity: entity, indexStart: start, indexEnd: end, color: colorText , spanId: spanId}]);
   };
 
   const handleSubmit = (e) => {
@@ -75,7 +79,26 @@ function ToolComponent({ classes, text, setExportData, exportData }) {
     setExportData([...exportData, output]);
 
     contentEditableRef.current.innerHTML = text;
+
+    setNamedEntities([]);
   };
+
+  const handleRemoveEntity = (spanIdToRemove) => {
+
+    const updatedEntities = namedEntities.filter((entity) => entity.spanId !== spanIdToRemove);
+    setNamedEntities(updatedEntities);
+
+    const contentEditableDiv = contentEditableRef.current;
+    const spanToRemove = contentEditableDiv.querySelector(`#${spanIdToRemove}`);
+    
+    if (spanToRemove) {
+      spanToRemove.style.backgroundColor = "white";
+      const textNode = document.createTextNode(spanToRemove.textContent);
+      contentEditableDiv.replaceChild(textNode, spanToRemove);
+    }
+  };
+
+  console.log(namedEntities);
 
   useEffect(() => {
     setNamedEntities([]);
@@ -134,9 +157,9 @@ function ToolComponent({ classes, text, setExportData, exportData }) {
         <div className='mt-3 d-flex flex-column no-wrap'>
           <div className='fs-4 mb-3'>{selectedClass.classType}</div>
           {namedEntities && namedEntities.map((entity) => (
-            <div className='fs-5 my-2 d-flex no-wrap justify-content-center align-items-center'>
+            <div className='fs-5 my-2 d-flex no-wrap justify-content-center align-items-center' key={entity.spanId}>
               <div className={`text-center bg-${entity.color}`}>{entity.text} : {entity.entity}</div>
-              <span className='btn btn-outline-danger btn-sm ms-4'>X</span>
+              <span className='btn btn-outline-danger btn-sm ms-4' onClick={() => handleRemoveEntity(entity.spanId)}>X</span>
             </div>
           ))}
         </div>
