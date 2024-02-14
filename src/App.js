@@ -1,9 +1,9 @@
-import Tool from './tool'
+import Tool from './pages/Tool'
 
 function App() {
-  return (
-    <Tool />
-  );
+	return (
+		<Tool />
+	);
 }
 
 export default App;
