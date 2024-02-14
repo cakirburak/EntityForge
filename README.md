@@ -2,12 +2,14 @@
 
 EntityForge is a sophisticated text classification and named entity labeling tool designed to streamline data annotation tasks. With EntityForge, users can effortlessly classify text data and label named entities within JSON files, empowering them to efficiently process and analyze textual data.
 
+![EntityForge Preview](screenshots/preview.png)
+
 ## Features
 
 - **JSON Input:** Import JSON files containing text data for annotation, along with classes and entities from `db.json`.
 - **Text Classification:** Classify text data into predefined categories or labels.
 - **Named Entity Labeling:** Identify and label named entities within text documents.
-- **Export Functionality:** Export annotated data in JSON format for seamless integration with other systems or further analysis.
+- **Export Functionality:** Export annotated data in JSON format as `data.json` for seamless integration with other systems or further analysis.
 
 ## Requirements
 
@@ -39,6 +41,8 @@ $ npm start
 1. **Data Import:** Upload JSON files containing text data into EntityForge, along with classes and entities imported from `db.json`.
 2. **Text Annotation:** Utilize the intuitive interface to classify text data and label named entities.
 3. **Export Results:** Export annotated data in JSON format for seamless integration with other applications or systems.
+
+![Data Preview](screenshots/input-output.png)
 
 ## Input Configuration (db.json)
 
