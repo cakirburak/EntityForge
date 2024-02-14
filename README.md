@@ -1,70 +1,15 @@
-<div align="center" id="top"> 
-  <img src="./.github/app.gif" alt="Text Classification Tool" />
+# EntityForge
 
-  &#xa0;
+EntityForge is a sophisticated text classification and named entity labeling tool designed to streamline data annotation tasks. With EntityForge, users can effortlessly classify text data and label named entities within JSON files, empowering them to efficiently process and analyze textual data.
 
-  <!-- <a href="https://textclassificationtool.netlify.app">Demo</a> -->
-</div>
+## Features
 
-<h1 align="center">Text Classification Tool</h1>
+- **JSON Input:** Import JSON files containing text data for annotation, along with classes and entities from `db.json`.
+- **Text Classification:** Classify text data into predefined categories or labels.
+- **Named Entity Labeling:** Identify and label named entities within text documents.
+- **Export Functionality:** Export annotated data in JSON format for seamless integration with other systems or further analysis.
 
-<p align="center">
-  <img alt="Github top language" src="https://img.shields.io/github/languages/top/{{YOUR_GITHUB_USERNAME}}/text-classification-tool?color=56BEB8">
-
-  <img alt="Github language count" src="https://img.shields.io/github/languages/count/{{YOUR_GITHUB_USERNAME}}/text-classification-tool?color=56BEB8">
-
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/{{YOUR_GITHUB_USERNAME}}/text-classification-tool?color=56BEB8">
-
-  <img alt="License" src="https://img.shields.io/github/license/{{YOUR_GITHUB_USERNAME}}/text-classification-tool?color=56BEB8">
-
-  <!-- <img alt="Github issues" src="https://img.shields.io/github/issues/{{YOUR_GITHUB_USERNAME}}/text-classification-tool?color=56BEB8" /> -->
-
-  <!-- <img alt="Github forks" src="https://img.shields.io/github/forks/{{YOUR_GITHUB_USERNAME}}/text-classification-tool?color=56BEB8" /> -->
-
-  <!-- <img alt="Github stars" src="https://img.shields.io/github/stars/{{YOUR_GITHUB_USERNAME}}/text-classification-tool?color=56BEB8" /> -->
-</p>
-
-<!-- Status -->
-
-<!-- <h4 align="center"> 
-	🚧  Text Classification Tool 🚀 Under construction...  🚧
-</h4> 
-
-<hr> -->
-
-<p align="center">
-  <a href="#dart-about">About</a> &#xa0; | &#xa0; 
-  <a href="#sparkles-features">Features</a> &#xa0; | &#xa0;
-  <a href="#rocket-technologies">Technologies</a> &#xa0; | &#xa0;
-  <a href="#white_check_mark-requirements">Requirements</a> &#xa0; | &#xa0;
-  <a href="#checkered_flag-starting">Starting</a> &#xa0; | &#xa0;
-  <a href="#memo-license">License</a> &#xa0; | &#xa0;
-  <a href="https://github.com/{{YOUR_GITHUB_USERNAME}}" target="_blank">Author</a>
-</p>
-
-<br>
-
-## :dart: About ##
-
-Describe your project
-
-## :sparkles: Features ##
-
-:heavy_check_mark: Feature 1;\
-:heavy_check_mark: Feature 2;\
-:heavy_check_mark: Feature 3;
-
-## :rocket: Technologies ##
-
-The following tools were used in this project:
-
-- [Expo](https://expo.io/)
-- [Node.js](https://nodejs.org/en/)
-- [React](https://pt-br.reactjs.org/)
-- [React Native](https://reactnative.dev/)
-- [TypeScript](https://www.typescriptlang.org/)
-
-## :white_check_mark: Requirements ##
+## Requirements
 
 Before starting :checkered_flag:, you need to have [Git](https://git-scm.com) and [Node](https://nodejs.org/en/) installed.
 
@@ -72,27 +17,47 @@ Before starting :checkered_flag:, you need to have [Git](https://git-scm.com) an
 
 ```bash
 # Clone this project
-$ git clone https://github.com/{{YOUR_GITHUB_USERNAME}}/text-classification-tool
+$ git clone https://github.com/{{YOUR_GITHUB_USERNAME}}/EntityForge.git
 
 # Access
-$ cd text-classification-tool
+$ cd EntityForge
 
 # Install dependencies
-$ yarn
+$ npm install
 
-# Run the project
-$ yarn start
+# Run the server for your input
+$ npx json-server --watch data/db.json --port 8000
 
-# The server will initialize in the <http://localhost:3000>
+# Run the application
+$ npm start
+
+# Access EntityForge through your web browser at `http://localhost:3000`
 ```
 
-## :memo: License ##
+## Usage
 
-This project is under license from MIT. For more details, see the [LICENSE](LICENSE.md) file.
+1. **Data Import:** Upload JSON files containing text data into EntityForge, along with classes and entities imported from `db.json`.
+2. **Text Annotation:** Utilize the intuitive interface to classify text data and label named entities.
+3. **Export Results:** Export annotated data in JSON format for seamless integration with other applications or systems.
 
+## Input Configuration (db.json)
 
-Made with :heart: by <a href="https://github.com/{{YOUR_GITHUB_USERNAME}}" target="_blank">{{YOUR_NAME}}</a>
+The `db.json` file should contain the classes and entities required for text annotation. Ensure that it is correctly formatted and up-to-date with your classification and entity labeling requirements.
 
-&#xa0;
+## Contributing
 
-<a href="#top">Back to top</a>
+Contributions to EntityForge are highly appreciated! To contribute:
+
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Implement your changes and commit them with descriptive messages.
+4. Push your changes to your fork.
+5. Submit a pull request to the main repository.
+
+## License
+
+EntityForge is licensed under the [MIT License](LICENSE).
+
+## Contact
+
+For any inquiries or feedback, please reach out to [cakirburak43@gmail.com](mailto:your_email@example.com).
