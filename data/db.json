@@ -3,9 +3,11 @@
 		"projectName": "Test Project"
 	},
 	"texts": [
-		"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-		"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen",
-		"asdasd"
+		"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur maximus in est quis luctus. Phasellus blandit sem sed metus fermentum, non vehicula dolor porttitor. Donec posuere purus sed purus sollicitudin, et sollicitudin velit commodo.",
+		"Maecenas ut sem sed ex rhoncus ultricies. Cras at magna non purus placerat aliquet ut quis magna. Nullam at neque nec tortor fringilla dapibus. Fusce malesuada tincidunt ipsum, aliquam aliquam risus pharetra vel. Sed quis tellus arcu.",
+		"Nulla orci metus, finibus ac condimentum pretium, porttitor sit amet sem. Pellentesque ullamcorper ante nec dolor molestie finibus. Maecenas elementum massa at mauris ultrices aliquet. Donec ultrices bibendum lacus, vitae fermentum dui.",
+		"Donec venenatis in mauris non elementum. Vivamus tortor nulla, condimentum ac porttitor eu, pellentesque at lacus. In vel porta metus. Vestibulum eu interdum sapien. Duis ultrices, nisl quis suscipit finibus, metus nisi lobortis massa, at consequat nunc sem non sapien",
+		"Ut iaculis sagittis molestie. Nunc sit amet cursus sapien. Curabitur sit amet purus egestas, cursus tellus id, mattis dolor. Mauris pretium ornare luctus."
 	],
 	"classes": [
 		{
@@ -22,10 +24,7 @@
 			"entities": [
 				"person",
 				"fee",
-				"updated",
-				"a",
-				"b",
-				"c"
+				"updated"
 			]
 		},
 		{
